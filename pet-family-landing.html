@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet Family — Banho, Tosa e Veterinário em Socorro-SE</title>
+<meta name="description" content="Banho, tosa, consultas veterinárias e pet shop em Socorro-SE. Agende pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0A62D0; --blue-dark:#074a9e; --navy:#06264f; --sky:#e8f1fc;
+  --yellow:#FFC933; --yellow-dark:#f0b400; --white:#fff; --ink:#14233a; --muted:#51627a;
+  --radius:20px;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Figtree",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.6;font-size:1.05rem}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font:700 1rem var(--body);text-decoration:none;border-radius:999px;padding:.95rem 1.6rem;border:2px solid transparent;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;cursor:pointer;text-align:center}
+.btn svg{width:22px;height:22px;flex:none}
+.btn:hover{transform:translateY(-3px)}
+.btn:active{transform:translateY(0)}
+.btn-yellow{background:var(--yellow);color:var(--navy);box-shadow:0 6px 0 var(--yellow-dark)}
+.btn-yellow:hover{background:#ffd558;box-shadow:0 9px 0 var(--yellow-dark)}
+.btn-blue{background:var(--blue);color:var(--white)}
+.btn-blue:hover{background:var(--blue-dark);box-shadow:0 10px 22px rgba(10,98,208,.3)}
+.btn-sm{padding:.55rem 1.1rem;font-size:.92rem}
+.btn-block{width:100%}
+
+/* Header */
+.topbar{background:var(--navy);color:var(--white);font-size:.88rem}
+.topbar .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:.25rem 1.5rem;padding:.5rem 0}
+.topbar strong{color:var(--yellow)}
+header.site{background:var(--blue);color:var(--white);position:sticky;top:0;z-index:20}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0}
+.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.logo svg{width:46px;height:46px;flex:none}
+.logo b{display:block;font:800 1.35rem/1 var(--display)}
+.logo small{display:block;font-size:.76rem;opacity:.85;margin-top:.2rem}
+.hide-sm{display:none}
+
+/* Hero */
+.hero{background:var(--blue);color:var(--white);position:relative;overflow:hidden;padding:2.5rem 0 4.5rem}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:48px;background:var(--white);clip-path:ellipse(60% 100% at 50% 100%)}
+.hero .wrap{display:grid;gap:2.5rem;align-items:center;position:relative;z-index:1}
+.hero h1{font:800 clamp(2.1rem,7.5vw,3.9rem)/1.05 var(--display);letter-spacing:-.02em;margin-bottom:1.1rem}
+.hero h1 span{display:block;color:var(--yellow);font-weight:600;margin-top:.4rem;font-size:.62em;line-height:1.2;letter-spacing:0}
+.hero p{max-width:34rem;opacity:.95;margin-bottom:1.7rem}
+.hero-note{margin-top:1rem;font-size:.9rem;opacity:.85}
+.hero-photo{position:relative;aspect-ratio:4/5;max-width:420px;width:100%;margin-inline:auto;border-radius:220px 220px var(--radius) var(--radius);background:linear-gradient(160deg,#3d8ae6,#0a4ea8);border:6px solid var(--yellow);display:grid;place-items:center;text-align:center;padding:2rem;color:rgba(255,255,255,.9)}
+.hero-photo svg{width:96px;height:96px;margin:0 auto 1rem;opacity:.9}
+.hero-photo small{display:block;font-size:.85rem;opacity:.85}
+.hero-photo .badge{position:absolute;right:-6px;bottom:2.2rem;background:var(--yellow);color:var(--navy);font:800 .95rem/1.2 var(--display);padding:.8rem 1rem;border-radius:16px;transform:rotate(4deg);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+
+/* Seções */
+section{padding:4rem 0}
+.sec-head{max-width:40rem;margin-bottom:2.2rem}
+.sec-head h2{font:800 clamp(1.7rem,5vw,2.6rem)/1.12 var(--display);color:var(--navy);letter-spacing:-.015em;margin-bottom:.6rem}
+.sec-head p{color:var(--muted)}
+
+/* Serviços */
+.services{background:var(--sky)}
+.cards{display:grid;gap:1.25rem}
+.card{background:var(--white);border-radius:var(--radius);padding:1.8rem;display:flex;flex-direction:column;gap:.9rem;border:2px solid transparent;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.card:hover{transform:translateY(-6px);border-color:var(--yellow);box-shadow:0 18px 36px rgba(10,98,208,.16)}
+.card .ico{width:60px;height:60px;border-radius:18px;background:var(--blue);color:var(--yellow);display:grid;place-items:center;transition:transform .25s ease}
+.card:hover .ico{transform:rotate(-8deg) scale(1.06)}
+.card .ico svg{width:32px;height:32px}
+.card h3{font:800 1.4rem/1.2 var(--display);color:var(--navy)}
+.card p{color:var(--muted);flex:1}
+
+/* Diferenciais + galeria */
+.gallery-grid{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+.ph{position:relative;min-height:170px;border-radius:var(--radius);background:linear-gradient(150deg,#d6e6fa,#a9c9f2);display:flex;align-items:flex-end;padding:1rem;color:var(--navy);overflow:hidden}
+.ph::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='%230A62D0' fill-opacity='.09'%3E%3Cellipse cx='40' cy='48' rx='13' ry='10'/%3E%3Ccircle cx='24' cy='32' r='5'/%3E%3Ccircle cx='36' cy='24' r='5'/%3E%3Ccircle cx='48' cy='24' r='5'/%3E%3Ccircle cx='60' cy='32' r='5'/%3E%3C/g%3E%3C/svg%3E")}
+.ph span{position:relative;background:var(--white);padding:.4rem .8rem;border-radius:999px;font-weight:700;font-size:.9rem}
+.ph.tall{grid-row:span 2;min-height:300px}
+.perks{display:grid;gap:.8rem;margin-top:2rem;list-style:none;padding:0}
+.perks li{display:flex;gap:.8rem;align-items:flex-start}
+.perks svg{width:26px;height:26px;color:var(--blue);flex:none;margin-top:2px}
+
+/* CTA final */
+.cta-band{background:var(--blue);color:var(--white);text-align:center;padding:3.5rem 0}
+.cta-band h2{font:800 clamp(1.6rem,5vw,2.4rem)/1.15 var(--display);margin-bottom:.6rem}
+.cta-band p{margin-bottom:1.6rem;opacity:.95}
+
+/* Footer */
+footer{background:var(--navy);color:var(--white);padding:3rem 0 6rem}
+footer .wrap{display:grid;gap:2rem}
+footer h3{font:800 1.1rem var(--display);color:var(--yellow);margin-bottom:.6rem}
+footer p,footer li{color:rgba(255,255,255,.85);font-size:.98rem}
+footer ul{list-style:none;padding:0}
+footer a{text-underline-offset:3px}
+footer a:hover{color:var(--yellow)}
+.copy{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:1.2rem;font-size:.85rem;opacity:.7}
+
+/* WhatsApp flutuante */
+.fab{position:fixed;right:1rem;bottom:1rem;z-index:30;display:flex;align-items:center;gap:.6rem;background:#25D366;color:#073b1c;font-weight:700;text-decoration:none;padding:.85rem;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.3);transition:transform .2s ease,box-shadow .2s ease}
+.fab:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 28px rgba(0,0,0,.35)}
+.fab svg{width:32px;height:32px}
+.fab span{display:none;padding-right:.6rem}
+
+@media (min-width:640px){
+  .hide-sm{display:inline-flex}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .gallery-grid{grid-template-columns:repeat(4,1fr)}
+  .ph{min-height:220px}
+  .fab span{display:inline}
+  .fab{padding:.8rem 1rem}
+  footer .wrap{grid-template-columns:1.2fr 1fr 1fr}
+}
+@media (min-width:900px){
+  .hero{padding:4rem 0 6rem}
+  .hero .wrap{grid-template-columns:1.15fr .85fr}
+  .perks{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- SVGs reutilizáveis -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.46 15.04L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.02.92.95-2.95-.2-.31A8.2 8.2 0 1 1 12.04 20.1Zm4.5-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.12-.56.12-.16.25-.64.8-.78.97-.15.16-.29.18-.54.06a6.7 6.7 0 0 1-3.3-2.88c-.25-.43.25-.4.72-1.33.08-.16.04-.3-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.42h-.47c-.16 0-.43.06-.65.3-.23.25-.86.85-.86 2.07s.88 2.4 1 2.57c.12.16 1.74 2.65 4.2 3.72 1.56.67 2.17.73 2.95.62.48-.07 1.46-.6 1.67-1.17.2-.58.2-1.08.14-1.18-.06-.1-.23-.16-.48-.28Z"/></symbol>
+  <symbol id="paw" viewBox="0 0 64 64"><g fill="currentColor"><ellipse cx="32" cy="42" rx="14" ry="11"/><ellipse cx="14" cy="28" rx="6" ry="8"/><ellipse cx="27" cy="18" rx="6" ry="8"/><ellipse cx="41" cy="18" rx="6" ry="8"/><ellipse cx="54" cy="28" rx="6" ry="8" transform="rotate(10 54 28)"/></g></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><strong>Seg a Sex:</strong> 08h às 19h</span>
+    <span><strong>Sábado:</strong> 08h às 18h</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#topo" aria-label="Pet Family — Centro de Estética de Patas">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#fff"/><use href="#paw" x="10" y="10" width="44" height="44" style="color:#0A62D0"/><circle cx="48" cy="14" r="6" fill="#FFC933"/></svg>
+      <span><b>Pet Family</b><small>Centro de Estética de Patas</small></span>
+    </a>
+    <a class="btn btn-yellow btn-sm" data-wa data-msg="Olá! Vim pelo site e gostaria de agendar." href="#" rel="noopener" target="_blank">
+      <svg aria-hidden="true"><use href="#wa"/></svg><span>WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero" style="padding-bottom:4.5rem">
+    <div class="wrap">
+      <div>
+        <h1>Pra gente, nunca foi só um banho...
+          <span>É cuidado e amor de verdade pelo seu pet em Socorro-SE.</span>
+        </h1>
+        <p>Banho, tosa, consulta veterinária e tudo para a rotina do seu pet no mesmo lugar. Feito para quem é tutor de verdade.</p>
+        <a class="btn btn-yellow" data-wa data-msg="Olá! Gostaria de agendar um banho ou consulta para o meu pet." href="#" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#wa"/></svg>Agendar Banho ou Consulta no WhatsApp
+        </a>
+        <p class="hero-note">Resposta rápida no horário de atendimento.</p>
+      </div>
+      <div class="hero-photo" role="img" aria-label="Espaço para foto da equipe com os pets">
+        <div>
+          <svg aria-hidden="true"><use href="#paw"/></svg>
+          <strong>Foto da equipe com os pets</strong>
+          <small>Substitua este espaço por uma imagem</small>
+        </div>
+        <div class="badge">Banho, tosa<br>e veterinário</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="servicos">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Tudo que o seu pet precisa, num só lugar</h2>
+        <p>Escolha o serviço e chame a gente no WhatsApp. Agendar leva menos de um minuto.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.2 6 10.5A6 6 0 0 1 6 13.5C6 9.2 12 3 12 3Z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></div>
+          <h3>Banho &amp; Tosa Especializado</h3>
+          <p>Cuidados completos e carinho em cada detalhe, do primeiro molhadinho ao laço final.</p>
+          <a class="btn btn-blue btn-block" data-wa data-msg="Olá! Gostaria de agendar banho e tosa." href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar banho e tosa</a>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/><rect x="3" y="3" width="18" height="18" rx="5"/></svg></div>
+          <h3>Atendimento Veterinário</h3>
+          <p>Consultas com profissionais dedicados à saúde e ao bem-estar do seu pet.</p>
+          <a class="btn btn-blue btn-block" data-wa data-msg="Olá! Gostaria de agendar uma consulta veterinária." href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar consulta</a>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></div>
+          <h3>Produtos e Farmácia Pet</h3>
+          <p>Seleção completa de rações, medicamentos e acessórios para o dia a dia.</p>
+          <a class="btn btn-blue btn-block" data-wa data-msg="Olá! Gostaria de saber sobre rações, medicamentos e acessórios." href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Falar sobre produtos</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="conheca">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Conheça a Pet Family</h2>
+        <p>Uma equipe que trata cada pet como parte da família, num espaço pensado para o conforto deles.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="ph tall"><span>Nossa equipe</span></div>
+        <div class="ph"><span>Estrutura da loja</span></div>
+        <div class="ph"><span>Clientes de quatro patas</span></div>
+        <div class="ph"><span>Banho e tosa</span></div>
+        <div class="ph"><span>Consultório</span></div>
+      </div>
+      <ul class="perks">
+        <li><svg aria-hidden="true"><use href="#check"/></svg><span>Banho, tosa, veterinário e pet shop no mesmo endereço</span></li>
+        <li><svg aria-hidden="true"><use href="#check"/></svg><span>Atendimento de segunda a sábado, com horário amplo</span></li>
+        <li><svg aria-hidden="true"><use href="#check"/></svg><span>Agendamento direto pelo WhatsApp</span></li>
+        <li><svg aria-hidden="true"><use href="#check"/></svg><span>Em Socorro-SE, perto de você</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap">
+      <h2>Seu pet merece esse carinho</h2>
+      <p>Chame a gente e escolha o melhor horário para vocês.</p>
+      <a class="btn btn-yellow" data-wa data-msg="Olá! Gostaria de agendar banho ou consulta." href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar Banho ou Consulta no WhatsApp</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h3>Pet Family</h3>
+      <p>Centro de Estética de Patas<br>Banho, tosa e veterinário.</p>
+      <p style="margin-top:.8rem"><strong>Endereço:</strong><br>[Rua e número], Socorro-SE</p>
+    </div>
+    <div>
+      <h3>Horário de atendimento</h3>
+      <ul>
+        <li>Seg a Sex: 8h às 19h</li>
+        <li>Sáb: 8h às 18h</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Fale com a gente</h3>
+      <ul>
+        <li><a href="https://instagram.com/petfamilyse" target="_blank" rel="noopener">Instagram @petfamilyse</a></li>
+        <li><a data-wa data-msg="Olá! Vim pelo site." href="#" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+    </div>
+    <p class="copy">© <span id="ano"></span> Pet Family. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<a class="fab" data-wa data-msg="Olá! Vim pelo site e gostaria de agendar." href="#" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+  <svg aria-hidden="true"><use href="#wa"/></svg><span>Chamar no WhatsApp</span>
+</a>
+
+<script>
+  // Troque pelo número real: código do país + DDD + número, só dígitos (ex.: 5579999999999)
+  const WHATSAPP_NUMBER = "5579900000000";
+
+  document.querySelectorAll("[data-wa]").forEach(a => {
+    const msg = encodeURIComponent(a.dataset.msg || "Olá! Gostaria de agendar.");
+    a.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+  });
+  document.getElementById("ano").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
